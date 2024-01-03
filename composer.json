@@ -1,0 +1,80 @@
+{
+    "name": "mrjmpl3/laravel-peru-consult",
+    "type": "library",
+    "description": "Laravel package to consult DNI and RUC from Perú",
+    "keywords": [
+        "mrjmpl3",
+        "laravel",
+        "peru",
+        "dni",
+        "ruc",
+        "laravel-peru-consult"
+    ],
+    "homepage": "https://github.com/MrJmpl3/laravel--package-peru-consult",
+    "version": "2.0.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MrJmpl3",
+            "email": "jmpl3.soporte@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "guzzlehttp/guzzle": "^7.2"
+    },
+    "require-dev": {
+        "ergebnis/composer-normalize": "^2.28",
+        "friendsofphp/php-cs-fixer": "^3.11",
+        "jetbrains/phpstorm-attributes": "^1.0",
+        "nunomaduro/collision": "^6.1",
+        "nunomaduro/larastan": "^2.2",
+        "orchestra/testbench": "^7.7",
+        "pestphp/pest": "^1.22",
+        "pestphp/pest-plugin-laravel": "^1.2",
+        "phpstan/extension-installer": "^1.1"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "ergebnis/composer-normalize": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "Sunat": "MrJmpl3\\LaravelPeruConsult\\Facades\\Sunat"
+            },
+            "providers": [
+                "MrJmpl3\\LaravelPeruConsult\\LaravelPeruConsultServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "MrJmpl3\\LaravelPeruConsult\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MrJmpl3\\LaravelPeruConsult\\Tests\\": "tests"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "larastan": [
+            "./vendor/bin/phpstan analyse --memory-limit=2G"
+        ],
+        "php-cs-fixer": [
+            "./vendor/bin/php-cs-fixer fix --allow-risky=yes"
+        ],
+        "test": "./vendor/bin/pest --no-coverage",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    }
+}

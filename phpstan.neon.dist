@@ -1,0 +1,19 @@
+parameters:
+    paths:
+        - src
+        - tests
+
+    # The level 8 is the highest level
+    level: 5
+
+    ignoreErrors:
+        - '#Unsafe usage of new static#'
+        - message: '#Undefined variable: \$this#'
+          paths:
+            - tests/Checks/*
+
+    #excludePaths:
+    #    - ./*/*/FileToBeExcluded.php
+
+    checkMissingIterableValueType: false
+    reportUnmatchedIgnoredErrors: false
